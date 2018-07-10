@@ -1,4 +1,4 @@
-import time,os,aes256,rsa_lib,rsa,hashlib
+import os,aes256,rsa_lib,rsa,hashlib
 def ra_encrypt(r_file_name,block_size,pub_key):
 	(path,filename) = os.path.split(r_file_name)
 	if path:
@@ -69,10 +69,3 @@ def ra_decrypt(r_file_name,prv_key):
 		data=r.read(block_size+32)
 	r.close()
 	w.close()
-
-s = int(time.time()*1000)
-#pubk=rsa_lib.open_public_key("publicKey.pem")
-#ra_encrypt("c:/cn_windows_10_consumer_editions_version_1803_updated_march_2018_x64_dvd_12063766.iso",67108864,pubk)
-prv_key=rsa_lib.open_private_key("privateKey.pem")
-print(ra_decrypt("c:/056f6a9b921645bbe94bfc904b66da1a",prv_key))
-print(int(time.time()*1000)-s)
